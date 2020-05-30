@@ -1,0 +1,27 @@
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Xcode
+*.xcworkspace
+
+# Visual Studio
+*.suo
+*.user
+.vs/
+
+
+# Build generated
+build/
+Makefile
+bin/*.app
+/mk1.sln
