@@ -116,7 +116,7 @@ solution "mk1"
             "./ext/fmt/include",
             "./ext/lua/src",
             "./ext/sdl2/include",
-            "./ext/utf8/",
+            "./ext/utfcpp/source",
         }
         files { "./src/**" }
         links { "fmt", "lua" }
