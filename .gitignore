@@ -24,4 +24,6 @@ $RECYCLE.BIN/
 build/
 Makefile
 bin/*.app
+bin/x64
+bin/x86
 /mk1.sln
