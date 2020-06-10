@@ -2,7 +2,11 @@
 
 #include <mk1/ut.h>
 
-#include <lua.hpp>
+extern "C" {
+#include <lauxlib.h>
+#include <lua.h>
+#include <lualib.h>
+}
 
 namespace mk1::lua {
 

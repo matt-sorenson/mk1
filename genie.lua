@@ -95,6 +95,7 @@ solution "mk1"
 
         includedirs "./ext/lua/src"
         files { "./ext/lua/src/**" }
+        files { "./ext/lua/src/luac.c" }
         vpaths { ["*"] = "ext/lua/**" }
 
         kind "StaticLib"
