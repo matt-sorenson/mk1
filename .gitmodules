@@ -1,3 +1,6 @@
 [submodule "ext/lua"]
 	path = ext/lua
 	url = git@github.com:matt-sorenson/lua.git
+[submodule "ext/fmt"]
+	path = ext/fmt
+	url = https://github.com/fmtlib/fmt.git
