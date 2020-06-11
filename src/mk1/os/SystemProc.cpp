@@ -138,14 +138,19 @@ static void open_gamepad(const int32_t id, std::map<int32_t, void*>& gamepads)
     SDL_GameController* controller = SDL_GameControllerOpen(id);
     if (!controller) {
         log.warn(fmt::format("failed to open Gamepad {}", id));
-    } else {
-        auto joystick = SDL_GameControllerGetJoystick(controller);
-        const int32_t joy_id = SDL_JoystickInstanceID(joystick);
-
-        log.info(fmt::format("Gamepad '{}'({}) opened.",
-                             SDL_GameControllerName(controller), joy_id));
-        gamepads[joy_id] = controller;
+        return;
     }
+    auto joystick = SDL_GameControllerGetJoystick(controller);
+
+    char guid[33] = {};
+    SDL_JoystickGetGUIDString(SDL_JoystickGetGUID(joystick), guid,
+                                COUNT_OF(guid));
+
+    log.info(fmt::format("Gamepad '{}' - {} opened.",
+                            SDL_GameControllerName(controller), guid));
+
+    const int32_t joy_id = SDL_JoystickInstanceID(joystick);
+    gamepads[joy_id] = controller;
 }
 
 static void close_gamepad(int32_t id, std::map<int32_t, void*>& gamepads)

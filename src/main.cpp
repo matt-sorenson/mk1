@@ -25,25 +25,6 @@ static void sdl_assert(const bool condition, const char* message)
     }
 }
 
-SDL_GameController* open_controller()
-{
-    SDL_GameController* controller = SDL_GameControllerOpen(0);
-
-    if (controller) {
-        mk1::log.info(fmt::format("Controller loaded: {}",
-                                  SDL_GameControllerName(controller)));
-
-        SDL_Joystick* joystick = SDL_GameControllerGetJoystick(controller);
-        char buffer[60] = {};
-        SDL_JoystickGetGUIDString(SDL_JoystickGetGUID(joystick), buffer,
-                                  COUNT_OF(buffer));
-
-        mk1::log.info(fmt::format("GUID: {}", buffer));
-    }
-
-    return controller;
-}
-
 int main(int MK1_UNUSED(argc), char** MK1_UNUSED(argv))
 {
     mk1::ut::loggers::ConsoleLogWriter console_log_writer;
